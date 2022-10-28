@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import StartPage from './components/StartPage.vue'
+import StartPage from './views/StartPage.vue'
 </script>
 
 <style scoped>
