@@ -1,9 +1,8 @@
 <template>
-	<start-page msg="Vite + Vue"/>
+	<router-view />
 </template>
 
 <script setup lang="ts">
-import StartPage from './views/StartPage.vue'
 </script>
 
 <style scoped>
