@@ -1,8 +1,14 @@
 import StartPage from '../views/StartPage.vue';
-import {createRouter, createWebHistory} from 'vue-router';
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router';
 
-const routes = [
-	{ path: '/', component: StartPage }
+export const enum ROUTES {
+	START_PAGE = 'Start Page',
+	GAME_PAGE = 'Game Page'
+}
+
+const routes: RouteRecordRaw[] = [
+	{ name: ROUTES.START_PAGE , path: '/', component: StartPage },
+	{ name: ROUTES.GAME_PAGE, path: '/game', component: () => import('../views/GamePage.vue') }
 ];
 
 const router = createRouter({
