@@ -22,9 +22,4 @@ const startGame = () => {
 
 <style scoped>
 
-.box button {
-
-}
-
-
 </style>
