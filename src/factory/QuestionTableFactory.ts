@@ -1,6 +1,6 @@
-import {QuestionHeaders, QuestionTableData} from '../domain/QuestionTable';
+import {QuestionHeaders, QuestionTable, QuestionTableData} from '../domain/QuestionTable';
 
-export function createQuestionTable({ headers, data }: { headers: QuestionHeaders, data: QuestionTableData }) {
+export function createQuestionTable({ headers, data }: { headers: QuestionHeaders, data: QuestionTableData }): QuestionTable {
 	return {
 		headers,
 		data
