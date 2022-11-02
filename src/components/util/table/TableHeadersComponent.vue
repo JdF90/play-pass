@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import {PropType, toRefs} from 'vue';
-import {QuestionHeaders} from '../../../domain/QuestionTable';
+import {QuestionHeaders} from '../../../domain/Question';
 
 const props = defineProps({
 	headers: Object as PropType<QuestionHeaders>

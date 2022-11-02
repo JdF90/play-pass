@@ -5,12 +5,12 @@
 </template>
 
 <script setup lang="ts">
-import {QuestionTable} from '../../../domain/QuestionTable';
+import {Question} from '../../../domain/Question';
 import {PropType, toRefs} from 'vue';
 import TableHeaders from './TableHeadersComponent.vue';
 
 const props = defineProps({
-	table: Object as PropType<QuestionTable>
+	table: Object as PropType<Question>
 });
 
 const { table } = toRefs(props);

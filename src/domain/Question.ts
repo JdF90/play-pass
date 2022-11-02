@@ -1,4 +1,4 @@
-export type QuestionTable = {
+export type Question = {
 	headers: QuestionHeaders,
 	data: QuestionData
 }
