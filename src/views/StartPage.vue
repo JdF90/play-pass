@@ -2,7 +2,7 @@
 	<button
 		name="start-game-button"
 		@click="startGame">
-			Start Game
+		Start Game
 	</button>
 </template>
 
@@ -18,9 +18,13 @@ const startGame = () => {
 	});
 };
 
-
 </script>
 
 <style scoped>
+
+.box button {
+
+}
+
 
 </style>
