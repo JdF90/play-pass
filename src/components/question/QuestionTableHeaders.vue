@@ -11,14 +11,12 @@
 </template>
 
 <script setup lang="ts">
-import {PropType, toRefs} from 'vue';
-import {QuestionHeaders} from '../../../domain/Question';
+import {PropType} from 'vue';
+import {QuestionHeaders} from '../../domain/QuestionTable';
 
-const props = defineProps({
+defineProps({
 	headers: Object as PropType<QuestionHeaders>
 });
-
-const { headers } = toRefs(props);
 
 </script>
 
