@@ -1,14 +1,16 @@
 <template>
-	<section
+	<main
 		class="page-container">
 		<game-title :title="title" />
 		<question class="question-container" />
-	</section>
+		<answer />
+	</main>
 </template>
 
 <script setup lang="ts">
 import GameTitle from '../components/util/TitleComponent.vue';
 import Question from '../components/question/GameQuestion.vue';
+import Answer from '../components/question/QuestionAnswer.vue';
 
 const title = 'Who is the following player?';
 
@@ -17,8 +19,8 @@ const title = 'Who is the following player?';
 <style scoped>
 
 .question-container {
-	margin: auto;
 	font-size: 1.25rem;
+	margin: auto;
 }
 
 </style>

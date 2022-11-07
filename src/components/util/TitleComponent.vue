@@ -18,8 +18,8 @@ const props = defineProps({
 
 .title {
 	font-size: 2rem;
-	width: 100%;
 	text-align: center;
+	width: 100%;
 }
 
 </style>
