@@ -11,12 +11,9 @@
 </template>
 
 <script setup lang="ts">
-import {PropType} from 'vue';
-import {QuestionTableData} from '../../domain/QuestionTable';
+import {inject} from 'vue';
 
-defineProps({
-	data: Object as PropType<QuestionTableData>
-});
+const data = inject('question-table-data');
 
 </script>
 

@@ -11,12 +11,11 @@
 </template>
 
 <script setup lang="ts">
-import {PropType} from 'vue';
-import {QuestionHeaders} from '../../domain/QuestionTable';
+import {inject} from 'vue';
 
-defineProps({
-	headers: Object as PropType<QuestionHeaders>
-});
+const headers = inject('question-table-headers');
+
+
 
 </script>
 
