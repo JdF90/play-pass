@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { createQuestionTable } from '../../factory/QuestionTableFactory';
-import {TEST_QUESTION_TABLE} from '../../assets/TestQuestion';
+import {TEST_QUESTION_TABLE} from '../../test/TestQuestion';
 import QuestionTableComponent from './QuestionTable.vue';
 import {provide} from 'vue';
 

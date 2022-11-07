@@ -1,5 +1,6 @@
 <template>
-	<tbody>
+	<tbody
+		data-testid="question-table-body">
 		<tr
 			v-for="row in data.rows"
 			:key="row">
