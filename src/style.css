@@ -5,6 +5,23 @@
 }
 
 body {
-    background-color: #FAF3E3;
+    background-color: #FFFFFF;
 }
 
+.page-container {
+    background-color: rgb(250, 243, 227, .5);
+    border-radius: 20px;
+    box-shadow: 0 5px 10px 0 rgb(250, 243, 227, .2);
+    margin: auto;
+    padding: 30px;
+    width: 50%;
+}
+
+/*
+ Layout related to the question table
+ */
+td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+    text-align: center;
+}
