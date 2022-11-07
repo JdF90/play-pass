@@ -1,5 +1,9 @@
 <template>
-	<h1 class="title"> {{ props.title }} </h1>
+	<h1
+		class="title"
+		data-testid="game-title">
+		{{ props.title }}
+	</h1>
 </template>
 
 <script setup lang="ts">
