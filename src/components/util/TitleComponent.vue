@@ -17,7 +17,9 @@ const props = defineProps({
 <style scoped>
 
 .title {
-	font-size: 1.25rem;
+	font-size: 2rem;
+	width: 100%;
+	text-align: center;
 }
 
 </style>
