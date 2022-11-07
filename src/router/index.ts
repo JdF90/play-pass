@@ -11,9 +11,9 @@ const routes: RouteRecordRaw[] = [
 	{ name: ROUTES.GAME_PAGE, path: '/game', component: () => import('../views/GamePage.vue') }
 ];
 
-const router = createRouter({
+
+export const router = () => createRouter({
 	history: createWebHistory(),
 	routes,
 });
 
-export default router;
