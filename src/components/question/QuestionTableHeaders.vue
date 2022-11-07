@@ -1,5 +1,6 @@
 <template>
-	<thead>
+	<thead
+		data-testid="question-table-headers">
 		<tr>
 			<th
 				v-for="header in headers"
@@ -14,8 +15,6 @@
 import {inject} from 'vue';
 
 const headers = inject('question-table-headers');
-
-
 
 </script>
 
