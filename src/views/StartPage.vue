@@ -1,6 +1,7 @@
 <template>
 	<button
 		name="start-game-button"
+		data-testid="start-game-button"
 		@click="startGame">
 		Start Game
 	</button>
