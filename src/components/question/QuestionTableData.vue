@@ -3,7 +3,7 @@
 		data-testid="question-table-body">
 		<tr
 			v-for="row in data.rows"
-			:key="row">
+			:key="row.period">
 			<td> {{ row.period }} </td>
 			<td> {{ row.club }} </td>
 			<td> {{ row.stats }} </td>
@@ -13,8 +13,9 @@
 
 <script setup lang="ts">
 import {inject} from 'vue';
+import { QuestionTableData } from '../../domain/QuestionTable';
 
-const data = inject('question-table-data');
+const data: QuestionTableData = inject('question-table-data')!;
 
 </script>
 

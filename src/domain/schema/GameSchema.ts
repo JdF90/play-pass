@@ -6,7 +6,7 @@ export const GameSchema = z.object({
         z.object({
             id: z.string(),
             firstName: z.string(),
-            lastName: z.string(),
+            secondName: z.string(),
             passport: z.object({
                 id: z.string(),
                 records: z.array(

@@ -7,6 +7,9 @@ import { createQuestionTable } from '../../factory/QuestionTableFactory';
 import {TEST_QUESTION_TABLE} from '../../test/TestQuestion';
 import QuestionTableComponent from './QuestionTable.vue';
 import {provide} from 'vue';
+import { useGameStore } from '../../store/GameStore';
+
+const gameStore = useGameStore();
 
 const table = createQuestionTable({
 	headers: TEST_QUESTION_TABLE.headers, data: TEST_QUESTION_TABLE.data
