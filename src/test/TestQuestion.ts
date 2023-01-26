@@ -7,23 +7,25 @@ export const TEST_QUESTION_TABLE: QuestionTable = {
 			{
 				period: '2002-2004',
 				club: 'Barcelona',
-				stats: '102(10)'
+				games: 102,
+				goals: 10
 			},
 			{
 				period: '2004-2006',
 				club: 'Manchester United',
-				stats: '50(12)'
-			},
+				games: 50,
+				goals: 12,			},
 			{
 				period: '2006-2010',
 				club: 'PSV Eindhoven',
-				stats: '85(10)'
+				games: 85,
+				goals: 10,
 			},
 			{
 				period: '2010-2015',
 				club: 'FC Groningen',
-				stats: '233(36)'
-			},
+				games: 233,
+				goals: 36,			},
 		]
 	}
 };

@@ -13,7 +13,7 @@ export const useGameStore = defineStore('GameStore', {
     },
     actions: {
         async retrieveGame() {
-            retrieveGame().then((game: Game | null) => {
+            await retrieveGame().then((game: Game | null) => {
                 if (game === null) {
                     this.game = null;
                 }

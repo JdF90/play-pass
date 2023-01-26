@@ -4,7 +4,6 @@ import QuestionTableData from './QuestionTableData.vue';
 import {TEST_QUESTION_TABLE} from '../../test/TestQuestion';
 
 describe('GameTableData', () => {
-
 	it('should render the table data correctly', () => {
 		const wrapper = render(QuestionTableData, {
 			global: {

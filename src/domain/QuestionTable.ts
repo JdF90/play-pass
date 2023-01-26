@@ -12,5 +12,6 @@ export interface QuestionTableData {
 interface QuestionTableDataRow {
 	period: string,
 	club: string,
-	stats: string
+	games: number,
+	goals: number,
 }
