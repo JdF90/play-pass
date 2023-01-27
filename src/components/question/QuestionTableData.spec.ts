@@ -22,11 +22,13 @@ describe('GameTableData', () => {
 			for (let column = 0; column < currentRow.children.length; column++) {
 				const currentColumn = currentRow.children[column];
 				if (column === 0) {
-					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data.rows[row].period);
+					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data[row].period);
 				} else if (column === 1) {
-					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data.rows[row].club);
+					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data[row].club);
+				} else if (column === 2){
+					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data[row].games);
 				} else {
-					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data.rows[row].stats);
+					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data[row].goals);
 				}
 			}
 		}

@@ -2,20 +2,23 @@
 	<tbody
 		data-testid="question-table-body">
 		<tr
-			v-for="row in data.rows"
+			v-for="row in data"
 			:key="row.period">
 			<td> {{ row.period }} </td>
 			<td> {{ row.club }} </td>
-			<td> {{ row.stats }} </td>
+			<td> {{ row.games }} </td>
+			<td> {{ row.goals }} </td>
 		</tr>
 	</tbody>
 </template>
 
 <script setup lang="ts">
-import {inject} from 'vue';
+import {PropType} from 'vue';
 import { QuestionTableData } from '../../domain/QuestionTable';
 
-const data: QuestionTableData = inject('question-table-data')!;
+defineProps({
+	data: Object as PropType<QuestionTableData>
+})
 
 </script>
 

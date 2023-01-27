@@ -2,10 +2,10 @@ import { z } from 'zod';
 
 export const GameSchema = z.object({
     id: z.string(),
-    passports: z.array(
+    questions: z.array(
         z.object({
             playerId: z.string(),
-            records: z.array(
+            passport: z.array(
                 z.object({
                     period: z.string(),
                     club: z.string(),

@@ -5,10 +5,12 @@ import { retrieveGame } from '../logic/service/GameService';
 export const useGameStore = defineStore('GameStore', {
     state: () => ({
         game: {} as Game | null,
+        current: 0,
     }),
     getters: {
-        getGame: (state) => {
-            return state.game;
+        getCurrent: (state) => {
+            console.log(state.current);
+            return state.game?.questions[state.current]
         }
     },
     actions: {
@@ -19,6 +21,10 @@ export const useGameStore = defineStore('GameStore', {
                 }
                 this.game = game;
             });
+        },
+        nextQuestion() {
+            console.log('here');
+            this.current++;
         }
     }
 });

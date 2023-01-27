@@ -3,11 +3,9 @@ export interface QuestionTable {
 	data: QuestionTableData
 }
 
-export type QuestionHeaders = ['Period', 'Clubs', 'Games/Goals'];
+export type QuestionHeaders = ['Period', 'Clubs', 'Games', 'Goals'];
 
-export interface QuestionTableData {
-	rows: QuestionTableDataRow[]
-}
+export interface QuestionTableData extends Array<QuestionTableDataRow>{};
 
 interface QuestionTableDataRow {
 	period: string,

@@ -12,9 +12,14 @@
 </template>
 
 <script setup lang="ts">
-import {inject} from 'vue';
+import {PropType} from 'vue';
+import { QuestionHeaders } from '../../domain/QuestionTable';
 
-const headers = inject('question-table-headers');
+const props = defineProps({
+	headers: Object as PropType<QuestionHeaders>
+});
+
+console.log(props.headers);
 
 </script>
 
