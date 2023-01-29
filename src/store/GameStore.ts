@@ -10,7 +10,10 @@ export const useGameStore = defineStore('GameStore', {
     }),
     getters: {
         getCurrent: (state) => {
-            return state.game?.questions[state.current]
+            if (!state.game || !state.game.questions || state.current >= state.game.questions.length) {
+                return null;
+            }
+            return state.game?.questions[state.current];
         }
     },
     actions: {

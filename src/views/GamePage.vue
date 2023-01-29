@@ -5,15 +5,14 @@
 		<suspense>
 			<question class="question-container" />
 		</suspense>
-		<answer />
-		<button @click="nextQuestion">Next</button>
+		<question-wizard @next-question="nextQuestion"/>
 	</main>
 </template>
 
 <script setup lang="ts">
 import GameTitle from '../components/util/TitleComponent.vue';
 import Question from '../components/question/GameQuestion.vue';
-import Answer from '../components/question/QuestionAnswer.vue';
+import QuestionWizard from '../components/question/QuestionWizard.vue';
 import { useGameStore } from '../store/GameStore';
 
 const title = 'Who is the following player?';

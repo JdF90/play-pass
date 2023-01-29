@@ -12,7 +12,6 @@
 <style scoped>
 
 .answer-container {
-	text-align: center;
 	width: 100%;
 }
 
