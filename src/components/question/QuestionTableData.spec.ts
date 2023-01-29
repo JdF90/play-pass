@@ -6,10 +6,8 @@ import {TEST_QUESTION_TABLE} from '../../test/TestQuestion';
 describe('GameTableData', () => {
 	it('should render the table data correctly', () => {
 		const wrapper = render(QuestionTableData, {
-			global: {
-				provide: {
-					'question-table-data': TEST_QUESTION_TABLE.data
-				}
+			props: {
+				data: TEST_QUESTION_TABLE.data
 			}
 		});
 
@@ -26,9 +24,9 @@ describe('GameTableData', () => {
 				} else if (column === 1) {
 					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data[row].club);
 				} else if (column === 2){
-					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data[row].games);
+					expect(parseInt(currentColumn.textContent!)).toEqual(TEST_QUESTION_TABLE.data[row].games);
 				} else {
-					expect(currentColumn.textContent).toEqual(TEST_QUESTION_TABLE.data[row].goals);
+					expect(parseInt(currentColumn.textContent!)).toEqual(TEST_QUESTION_TABLE.data[row].goals);
 				}
 			}
 		}
