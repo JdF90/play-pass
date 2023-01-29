@@ -6,10 +6,10 @@ export const useGameStore = defineStore('GameStore', {
     state: () => ({
         game: {} as Game | null,
         current: 0,
+        currentQuestion: {} as {}
     }),
     getters: {
         getCurrent: (state) => {
-            console.log(state.current);
             return state.game?.questions[state.current]
         }
     },
@@ -23,7 +23,6 @@ export const useGameStore = defineStore('GameStore', {
             });
         },
         nextQuestion() {
-            console.log('here');
             this.current++;
         }
     }

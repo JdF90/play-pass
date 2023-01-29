@@ -12,14 +12,12 @@
 </template>
 
 <script setup lang="ts">
-import {PropType} from 'vue';
+import { PropType } from 'vue';
 import { QuestionHeaders } from '../../domain/QuestionTable';
 
 const props = defineProps({
 	headers: Object as PropType<QuestionHeaders>
 });
-
-console.log(props.headers);
 
 </script>
 

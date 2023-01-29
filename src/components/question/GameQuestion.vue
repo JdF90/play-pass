@@ -13,7 +13,6 @@ import { storeToRefs } from 'pinia';
 const gameStore = useGameStore();
 await gameStore.retrieveGame();
 const { getCurrent } = storeToRefs(gameStore);
-console.log(getCurrent.value);
 
 </script>
 

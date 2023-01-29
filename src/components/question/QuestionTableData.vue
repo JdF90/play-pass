@@ -13,12 +13,12 @@
 </template>
 
 <script setup lang="ts">
-import {PropType} from 'vue';
+import { PropType } from 'vue';
 import { QuestionTableData } from '../../domain/QuestionTable';
 
 defineProps({
 	data: Object as PropType<QuestionTableData>
-})
+});
 
 </script>
 
