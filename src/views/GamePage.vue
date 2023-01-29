@@ -19,7 +19,6 @@ import { useGameStore } from '../store/GameStore';
 const title = 'Who is the following player?';
 const store = useGameStore();
 
-
 const nextQuestion = () => {
 	store.nextQuestion();
 }
@@ -28,9 +27,29 @@ const nextQuestion = () => {
 
 <style scoped>
 
+.page-container {
+	width: 100%;
+	font-size: 1rem;
+}
+
 .question-container {
-	font-size: 1.25rem;
 	margin: auto;
+}
+
+/* tablet */
+@media screen and (min-width: 420px) and (max-width: 767px) {
+	.page-container {
+		width: 75%;
+		font-size: 1.12rem;
+	}
+}
+
+/* desktop */
+@media screen and (min-width: 768px) {
+	.page-container {
+		width: 50%;
+		font-size: 1.25rem;
+	}
 }
 
 </style>

@@ -1,15 +1,14 @@
 <template>
-	<tbody
+	<div
+		v-for="row in data"
+		:key="row.period"
+		class="row"
 		data-testid="question-table-body">
-		<tr
-			v-for="row in data"
-			:key="row.period">
-			<td> {{ row.period }} </td>
-			<td> {{ row.club }} </td>
-			<td> {{ row.games }} </td>
-			<td> {{ row.goals }} </td>
-		</tr>
-	</tbody>
+		<div class="column period"> {{ row.period }} </div>
+		<div class="column club"> {{ row.club }} </div>
+		<div class="column games"> {{ row.games }} </div>
+		<div class="column goals"> {{ row.goals }} </div>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -23,5 +22,22 @@ defineProps({
 </script>
 
 <style scoped>
+
+.row {
+	display: flex;
+}
+
+.period  {
+	flex: 30%;
+}
+
+.club {
+	flex: 40%;
+}
+
+.games, .goals {
+	flex: 15%;
+	text-align: center;
+}
 
 </style>

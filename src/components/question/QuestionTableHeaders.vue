@@ -1,14 +1,11 @@
 <template>
-	<thead
-		data-testid="question-table-headers">
-		<tr>
-			<th
-				v-for="header in headers"
-				:key="header">
-				{{ header }}
-			</th>
-		</tr>
-	</thead>
+	<div class="row"
+	data-testid="question-table-headers">
+		<div class="column period"> {{ headers![0] }} </div>
+		<div class="column club"> {{ headers![1] }} </div>
+		<div class="column games"> {{ headers![2] }} </div>
+		<div class="column goals"> {{ headers![3] }} </div>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -22,5 +19,24 @@ const props = defineProps({
 </script>
 
 <style scoped>
+
+.row {
+	display: flex;
+	align-items: center;
+}
+
+.period {
+	flex: 30%;
+} 
+
+.club {
+	flex: 40%;
+}
+
+.games, .goals {
+	flex: 15%;
+	text-align: center;
+}
+
 
 </style>

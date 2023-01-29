@@ -1,8 +1,8 @@
 <template>
-	<table>
+	<section class="table-wrapper">
 		<table-headers :headers="headers" />
 		<table-data :data="passport"/>
-	</table>
+	</section>
 </template>
 
 <script setup lang="ts">
@@ -20,5 +20,11 @@ const headers: QuestionHeaders = ['Period', 'Clubs', 'Games', 'Goals'];
 </script>
 
 <style scoped>
+
+.table-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
 
 </style>
