@@ -1,5 +1,7 @@
 <template>
-	<ul data-testid="question-table-body">
+	<ul 
+		class="table"
+		data-testid="question-table-body">
 		<li
 			v-for="(row, index) in data"
 			:key="index"
@@ -24,6 +26,11 @@ defineProps({
 </script>
 
 <style scoped>
+
+.table {
+	width: 100%;
+	padding: 0;
+}
 
 .row {
 	display: flex;
