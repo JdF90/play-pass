@@ -23,4 +23,4 @@ jobs:
         with:
           repository: player-pass
           push: true
-          tags: latest
+          tags: jdf90/player-pass:latest
