@@ -21,6 +21,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          repository: player-pass
+          repository: jdf90/player-pass
           push: true
-          tags: jdf90/player-pass:latest
+          tags: latest
