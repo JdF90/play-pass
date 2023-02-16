@@ -23,3 +23,5 @@ jobs:
         with:
           push: true
           tags: latest
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.GITHUB_TOKEN}}
