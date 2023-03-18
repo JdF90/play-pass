@@ -11,8 +11,6 @@ COPY . ./
 RUN ls -l
 RUN npm run build
 
-
-
 # build nginx server
 FROM nginx:alpine as production-build
 COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
