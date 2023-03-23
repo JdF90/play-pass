@@ -1,7 +1,7 @@
 import { Game, GameSchema } from '../../domain/schema/GameSchema';
  
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
-const GAME_ENDPOINT_URL = '/api/game';
+const GAME_ENDPOINT_URL = '/game';
 
 export const retrieveGame: () => Promise<Game | null> = async () => {
     return await fromBackendApi()
