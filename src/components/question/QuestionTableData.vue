@@ -12,7 +12,6 @@
 			<div class="column goals"> {{ row.goals }} </div>
 		</li>
 	</ul>
-
 </template>
 
 <script setup lang="ts">

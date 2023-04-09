@@ -20,7 +20,7 @@ const store = useGameStore();
 
 const nextQuestion = () => {
 	store.nextQuestion();
-}
+};
 
 </script>
 

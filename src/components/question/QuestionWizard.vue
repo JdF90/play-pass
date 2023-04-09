@@ -12,7 +12,7 @@ import NextQuestionButton from './QuestionNextButton.vue';
 const emit = defineEmits(['nextQuestion']);
 
 function nextQuestion() {
-    emit('nextQuestion', true);
+	emit('nextQuestion', true);
 }
 
 

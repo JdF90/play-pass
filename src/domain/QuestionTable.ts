@@ -5,7 +5,7 @@ export interface QuestionTable {
 
 export type QuestionHeaders = ['Period', 'Clubs', 'Games', 'Goals'];
 
-export interface QuestionTableData extends Array<QuestionTableDataRow>{};
+export type QuestionTableData = Array<QuestionTableDataRow>;
 
 interface QuestionTableDataRow {
 	period: string,
