@@ -14,6 +14,12 @@ export const useGameStore = defineStore('GameStore', {
 				return null;
 			}
 			return state.game?.questions[state.current];
+		},
+		getCurrentId: (state): string => {
+			if (!state.game || !state.game.questions || state.current >= state.game.questions.length) {
+				return '';
+			}
+			return state.game?.questions[state.current].playerId;
 		}
 	},
 	actions: {

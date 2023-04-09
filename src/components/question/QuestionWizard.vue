@@ -1,7 +1,7 @@
 <template>
 	<section class="question-wizard">
-		<answer />
-        <next-question-button @next-question="nextQuestion"/>
+		<answer/>
+		<next-question-button @next-question="nextQuestion"/>
 	</section>
 </template>
 

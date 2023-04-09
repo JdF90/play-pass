@@ -1,6 +1,5 @@
 <template>
-	<main
-		class="page-container">
+	<main class="page-container">
 		<game-title :title="title" />
 		<suspense>
 			<question class="question-container" />
