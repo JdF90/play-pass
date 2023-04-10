@@ -1,12 +1,15 @@
 import { defineStore } from 'pinia';
 import { Game } from '../domain/schema/GameSchema';
 import { retrieveGame } from '../logic/service/GameService';
+import {retrieveIfAnswerIsCorrect} from '../logic/service/QuestionService';
 
 export const useGameStore = defineStore('GameStore', {
 	state: () => ({
 		game: {} as Game | null,
 		current: 0,
 		currentQuestion: {} as {},
+		isCorrect: false,
+		givenAnswer: ''
 	}),
 	getters: {
 		getCurrent: (state) => {
@@ -31,8 +34,16 @@ export const useGameStore = defineStore('GameStore', {
 				this.game = game;
 			});
 		},
+		async retrieveIsCorrectAnswer(givenAnswer: string, playerId: string) {
+			const correct = await retrieveIfAnswerIsCorrect(givenAnswer, playerId);
+			if (correct) {
+				this.isCorrect = true;
+			}
+		},
 		nextQuestion() {
 			this.current++;
+			this.givenAnswer = '';
+			this.isCorrect = false;
 		}
 	}
 });

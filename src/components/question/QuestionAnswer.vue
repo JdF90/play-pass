@@ -8,19 +8,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { retrieveIfAnswerIsCorrect } from '../../logic/service/QuestionService';
-import {storeToRefs} from 'pinia';
-import {useGameStore} from '../../store/GameStore';
+import { watch } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useGameStore } from '../../store/GameStore';
 
-const givenAnswer = ref('');
 const gameStore = useGameStore();
-const { getCurrentId } = storeToRefs(gameStore);
-const checkAnswer = async (answer: string) => await retrieveIfAnswerIsCorrect(answer, getCurrentId.value);
-const isCorrect = ref(false);
+const { givenAnswer, getCurrentId } = storeToRefs(gameStore);
+const checkAnswer = async (answer: string) => await gameStore.retrieveIsCorrectAnswer(answer, getCurrentId.value);
 
 watch(givenAnswer, async (value) => {
-	isCorrect.value = await checkAnswer(value);
+	await checkAnswer(value);
 });
 
 </script>
