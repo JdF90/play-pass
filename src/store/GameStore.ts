@@ -40,6 +40,9 @@ export const useGameStore = defineStore('GameStore', {
 				this.isCorrect = true;
 			}
 		},
+		setGivenAnswer(givenAnswer: string) {
+			this.givenAnswer = givenAnswer;
+		},
 		nextQuestion() {
 			this.current++;
 			this.givenAnswer = '';

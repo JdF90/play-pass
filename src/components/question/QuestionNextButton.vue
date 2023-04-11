@@ -7,7 +7,7 @@
 const emit = defineEmits(['nextQuestion']);
 
 function nextQuestion() {
-    emit('nextQuestion', true);
+	emit('nextQuestion', true);
 }
 
 </script>

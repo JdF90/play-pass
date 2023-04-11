@@ -8,16 +8,17 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue';
-import { storeToRefs } from 'pinia';
 import { useGameStore } from '../../store/GameStore';
+import {computed} from 'vue';
 
 const gameStore = useGameStore();
-const { givenAnswer, getCurrentId } = storeToRefs(gameStore);
-const checkAnswer = async (answer: string) => await gameStore.retrieveIsCorrectAnswer(answer, getCurrentId.value);
-
-watch(givenAnswer, async (value) => {
-	await checkAnswer(value);
+const givenAnswer = computed({
+	get() {
+		return gameStore.givenAnswer;
+	},
+	set(value) {
+		return gameStore.setGivenAnswer(value);
+	}
 });
 
 </script>
