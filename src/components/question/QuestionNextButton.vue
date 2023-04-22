@@ -3,7 +3,6 @@
 </template>
 
 <script setup lang="ts">
-
 const emit = defineEmits(['nextQuestion']);
 
 function nextQuestion() {

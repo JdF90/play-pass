@@ -1,8 +1,9 @@
 <template>
 	<section class="answer-container">
-		<input 
-			id="answer" 
-			v-model="givenAnswer" 
+		<input
+			id="answer"
+			v-model="givenAnswer"
+			type="text"
 			placeHolder="Antwoord">
 	</section>
 </template>
@@ -27,6 +28,10 @@ const givenAnswer = computed({
 
 .answer-container {
 	width: 100%;
+}
+
+input {
+	background-color: whitesmoke;
 }
 
 </style>
