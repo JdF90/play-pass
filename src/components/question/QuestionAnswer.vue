@@ -4,7 +4,7 @@
 			id="answer"
 			v-model="givenAnswer"
 			type="text"
-			placeHolder="Antwoord">
+			placeHolder="Answer">
 	</section>
 </template>
 
@@ -31,7 +31,8 @@ const givenAnswer = computed({
 }
 
 input {
-	background-color: whitesmoke;
+	background-color: var(--main-text-color);
+	width: 70%;
 }
 
 </style>

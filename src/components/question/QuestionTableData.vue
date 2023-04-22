@@ -3,7 +3,7 @@
 		class="table"
 		data-testid="question-table-body">
 		<li
-			v-for="(row, index) in data"
+			v-for="(row, index) in data!"
 			:key="index"
 			class="row">
 			<div class="column period"> {{ row.period }} </div>
@@ -28,11 +28,16 @@ defineProps({
 
 .table {
 	width: 100%;
-	padding: 0;
+	padding: 10px 0;
+	border-top: whitesmoke solid;
 }
 
 .row {
 	display: flex;
+
+	:not(:last-child) {
+		margin-bottom: 10px;
+	}
 }
 
 .period  {

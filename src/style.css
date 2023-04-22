@@ -4,15 +4,20 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-bg-color: rgb(18, 18, 18, 0.95);
+    --main-text-color: whitesmoke;
+}
+
 body {
-    background-color: rgb(18, 18, 18, 0.95);
+    background-color: var(--main-bg-color);
 }
 
 .page-container {
     background-color: rgb(18, 18, 18);
     border-radius: 20px;
     box-shadow: 0 5px 10px 0 rgb(18, 18, 18,0.75);
-    color: whitesmoke;
+    color: var(--main-text-color);
     margin: auto;
     padding: 30px;
     width: 50%;
