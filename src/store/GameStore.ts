@@ -9,7 +9,8 @@ export const useGameStore = defineStore('GameStore', {
 		current: 0,
 		currentQuestion: {} as {},
 		isCorrect: false,
-		givenAnswer: ''
+		givenAnswer: '',
+		tries: 0
 	}),
 	getters: {
 		getCurrent: (state) => {
@@ -35,6 +36,7 @@ export const useGameStore = defineStore('GameStore', {
 			});
 		},
 		async retrieveIsCorrectAnswer(givenAnswer: string, playerId: string) {
+			this.tries++;
 			const correct = await retrieveIfAnswerIsCorrect(givenAnswer, playerId);
 			if (correct) {
 				this.isCorrect = true;
@@ -47,6 +49,7 @@ export const useGameStore = defineStore('GameStore', {
 			this.current++;
 			this.givenAnswer = '';
 			this.isCorrect = false;
+			this.tries = 0;
 		}
 	}
 });
