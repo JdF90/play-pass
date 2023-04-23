@@ -27,12 +27,12 @@ const givenAnswer = computed({
 <style scoped>
 
 .answer-container {
-	width: 100%;
+	width: 40%;
 }
 
 input {
 	background-color: var(--main-text-color);
-	width: 70%;
+	width: 100%;
 }
 
 </style>

@@ -12,4 +12,8 @@ const tryAnswer = () => {
 
 <style scoped>
 
+button {
+    margin-right: 5px;
+}
+
 </style>
