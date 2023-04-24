@@ -36,11 +36,11 @@ export const useGameStore = defineStore('GameStore', {
 			});
 		},
 		async retrieveIsCorrectAnswer(givenAnswer: string, playerId: string) {
-			this.tries++;
-			const correct = await retrieveIfAnswerIsCorrect(givenAnswer, playerId);
+			const correct = await retrieveIfAnswerIsCorrect(givenAnswer.toLowerCase(), playerId);
 			if (correct) {
 				this.isCorrect = true;
 			}
+			this.tries++;
 		},
 		setGivenAnswer(givenAnswer: string) {
 			this.givenAnswer = givenAnswer;

@@ -3,7 +3,9 @@
 		<answer />
 		<span> {{ feedBack }} </span>
 		<div>
-			<try-answer-button @try-answer="checkAnswer" />
+			<try-answer-button
+					v-if="!isCorrect"
+					@try-answer="checkAnswer" />
 			<next-question-button
 					v-if="isCorrect"
 					@next-question="nextQuestion"
