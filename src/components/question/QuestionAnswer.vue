@@ -2,6 +2,7 @@
 	<section class="answer-container">
 		<input
 			id="answer"
+			class="input is-primary"
 			v-model="givenAnswer"
 			type="text"
 			placeHolder="Answer">

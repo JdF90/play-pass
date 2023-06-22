@@ -23,11 +23,19 @@ const nextQuestion = () => {
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .page-container {
-	width: 100%;
-	font-size: 1rem;
+    background-color: rgb(18, 18, 18);
+    border-radius: 20px;
+    box-shadow: 0 5px 10px 0 rgb(18, 18, 18,0.75);
+    color: var(--main-text-color);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: auto;
+    padding: 30px;
+    width: 50%;
 }
 
 .question-container {

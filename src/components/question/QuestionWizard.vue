@@ -25,7 +25,7 @@ import {computed} from 'vue';
 const emit = defineEmits(['nextQuestion']);
 
 const store = useGameStore();
-const { isCorrect, givenAnswer, getCurrentId, tries } = storeToRefs(store);
+const { getGameId, isCorrect, givenAnswer, tries } = storeToRefs(store);
 
 const feedBack = computed(() => {
 	if (givenAnswer.value === '' || tries.value === 0) {
@@ -38,7 +38,7 @@ const feedBack = computed(() => {
 });
 
 const checkAnswer = async () => {
-	await store.retrieveIsCorrectAnswer(givenAnswer.value, getCurrentId.value);
+	await store.retrieveIsCorrectAnswer(givenAnswer.value);
 };
 
 const nextQuestion = () => {

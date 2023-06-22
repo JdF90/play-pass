@@ -1,7 +1,7 @@
 <template>
 	<question-table-component 
-		v-if="getCurrent" 
-		:passport="getCurrent.passport" 
+		v-if="getCurrentPlayer" 
+		:passport="getCurrentPlayer.passport" 
 	/>
 </template>
 
@@ -12,7 +12,7 @@ import { storeToRefs } from 'pinia';
 
 const gameStore = useGameStore();
 await gameStore.retrieveGame();
-const { getCurrent } = storeToRefs(gameStore);
+const { getCurrentPlayer } = storeToRefs(gameStore);
 
 </script>
 

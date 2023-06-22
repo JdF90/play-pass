@@ -1,5 +1,5 @@
 <template>
-	<button @click="nextQuestion">Next</button>
+	<button class="button" @click="nextQuestion">Next</button>
 </template>
 
 <script setup lang="ts">

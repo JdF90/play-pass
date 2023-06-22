@@ -27,17 +27,14 @@ defineProps({
 <style scoped>
 
 .table {
-	width: 100%;
-	padding: 10px 0;
 	border-top: whitesmoke solid;
+	border-radius: 20px;
+	padding: 10px 0;
+	width: 100%;
 }
 
 .row {
 	display: flex;
-
-	:not(:last-child) {
-		margin-bottom: 10px;
-	}
 }
 
 .period  {

@@ -13,17 +13,24 @@ export const useGameStore = defineStore('GameStore', {
 		tries: 0
 	}),
 	getters: {
-		getCurrent: (state) => {
+		getCurrentPlayer: (state) => {
 			if (!state.game || !state.game.questions || state.current >= state.game.questions.length) {
 				return null;
 			}
 			return state.game?.questions[state.current];
 		},
-		getCurrentId: (state): string => {
+		getCurrentPlayerId: (state): string => {
 			if (!state.game || !state.game.questions || state.current >= state.game.questions.length) {
 				return '';
 			}
 			return state.game?.questions[state.current].playerId;
+		},
+		getGameId: (state): string => {
+			if (!state.game) {
+				return '';
+			}
+
+			return state.game.id;
 		}
 	},
 	actions: {
@@ -35,8 +42,14 @@ export const useGameStore = defineStore('GameStore', {
 				this.game = game;
 			});
 		},
-		async retrieveIsCorrectAnswer(givenAnswer: string, playerId: string) {
-			const correct = await retrieveIfAnswerIsCorrect(givenAnswer.toLowerCase(), playerId);
+		async retrieveIsCorrectAnswer(givenAnswer: string) {
+			const correct = await retrieveIfAnswerIsCorrect({
+				gameId: this.getGameId, 
+				playerId: this.getCurrentPlayerId, 
+				answer: givenAnswer.toLowerCase(),
+				questionNumber: this.current + 1
+			});
+			console.log(correct);
 			if (correct) {
 				this.isCorrect = true;
 			}
