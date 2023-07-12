@@ -1,7 +1,9 @@
+import { GameResult, GameResultSchema } from '../../domain/schema/GameResultSchema';
 import { Game, GameSchema } from '../../domain/schema/GameSchema';
  
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const GAME_ENDPOINT_URL = '/game';
+const GAME_RESULT_PATH_URL = '/result';
 
 export const retrieveGame: () => Promise<Game | null> = async () => {
 	return await fromBackendApi()
@@ -17,6 +19,12 @@ export const retrieveGame: () => Promise<Game | null> = async () => {
 			return null;
 		});
 };
+
+export const retrieveGameResultsFromBackend: (gameId: string) => Promise<GameResult> = async (gameId) => {
+	const response = await fetch(BACKEND_URL + GAME_ENDPOINT_URL + `/${gameId}` + GAME_RESULT_PATH_URL);
+	const json = await response.json();
+	return GameResultSchema.parse(json);
+}
 
 const fromBackendApi: () => Promise <Game> = async () => {
 	const response = await fetch(BACKEND_URL + GAME_ENDPOINT_URL);

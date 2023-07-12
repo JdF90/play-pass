@@ -1,38 +1,35 @@
 <template>
 	<main class="page-container">
 		<game-title :title="title" />
-		<suspense>
-			<question class="question-container" />
-		</suspense>
-		<question-wizard @next-question="nextQuestion"/>
+		<p>Total Questions: {{ totalQuestions }}</p>
+    	<p>Percentage Correct: {{ percentageCorrect }}%</p>
+    
+    	<h3>Correct Answers</h3>
+    	<ul>
+      		<li v-for="(passport, index) in correctPassports" :key="'correct-' + index">
+        		{{ passport }}
+      		</li>
+    	</ul>
+
+		<h3>Incorrect Answers</h3>
+		<ul>
+			<li v-for="(passport, index) in incorrectPassports" :key="'incorrect-' + index">
+				{{ passport }}
+			</li>
+		</ul>
 	</main>
 </template>
 
 <script setup lang="ts">
 import GameTitle from '../components/util/TitleComponent.vue';
-import Question from '../components/question/GameQuestion.vue';
-import QuestionWizard from '../components/question/QuestionWizard.vue';
 import { useGameStore } from '../store/GameStore';
-import { useRouter } from 'vue-router';
-import { ROUTES } from '../router';
 
-const title = 'Who is the following player?';
-const store = useGameStore();
-const router = useRouter();
-
-const nextQuestion = async () => {
-	console.log(store.isLastQuestion);
-	if (store.isLastQuestion) {
-		await store.retrieveGameResults();
-		routeToGameResult();
-	}
-	store.nextQuestion();
-};
-
-function routeToGameResult() {
-	router.push({name: ROUTES.GAME_RESULT_PAGE, params: { id: store.getGameId }})
-}
-
+const title = 'Final Score';
+const gameStore = useGameStore();
+const correctPassports = null;
+const incorrectPassports = null;
+const totalQuestions = null;
+const percentageCorrect = null;
 </script>
 
 <style scoped lang="scss">
@@ -48,10 +45,6 @@ function routeToGameResult() {
     margin: auto;
     padding: 30px;
     width: 50%;
-}
-
-.question-container {
-	margin: auto;
 }
 
 /* tablet */

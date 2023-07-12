@@ -1,16 +1,19 @@
 import { defineStore } from 'pinia';
 import { Game } from '../domain/schema/GameSchema';
-import { retrieveGame } from '../logic/service/GameService';
+import { retrieveGame, retrieveGameResultsFromBackend } from '../logic/service/GameService';
 import {retrieveIfAnswerIsCorrect} from '../logic/service/QuestionService';
+import { GameResult } from '../domain/schema/GameResultSchema';
 
 export const useGameStore = defineStore('GameStore', {
 	state: () => ({
 		game: {} as Game | null,
+		total: 0,
 		current: 0,
 		currentQuestion: {} as {},
 		isCorrect: false,
 		givenAnswer: '',
-		tries: 0
+		tries: 0,
+		gameResult: {} as GameResult | undefined,
 	}),
 	getters: {
 		getCurrentPlayer: (state) => {
@@ -31,6 +34,9 @@ export const useGameStore = defineStore('GameStore', {
 			}
 
 			return state.game.id;
+		},
+		isLastQuestion: (state): boolean => {
+			return state.current + 1 === state.total;
 		}
 	},
 	actions: {
@@ -40,6 +46,7 @@ export const useGameStore = defineStore('GameStore', {
 					this.game = null;
 				}
 				this.game = game;
+				this.total = game!.questions.length
 			});
 		},
 		async retrieveIsCorrectAnswer(givenAnswer: string) {
@@ -49,11 +56,14 @@ export const useGameStore = defineStore('GameStore', {
 				answer: givenAnswer.toLowerCase(),
 				questionNumber: this.current + 1
 			});
-			console.log(correct);
 			if (correct) {
 				this.isCorrect = true;
 			}
 			this.tries++;
+		},
+		async retrieveGameResults() {
+			console.log('here');
+			this.gameResult = await retrieveGameResultsFromBackend(this.getGameId);
 		},
 		setGivenAnswer(givenAnswer: string) {
 			this.givenAnswer = givenAnswer;
