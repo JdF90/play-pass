@@ -21,10 +21,11 @@ const store = useGameStore();
 const router = useRouter();
 
 const nextQuestion = async () => {
-	console.log(store.isLastQuestion);
 	if (store.isLastQuestion) {
 		await store.retrieveGameResults();
 		routeToGameResult();
+		
+		return;
 	}
 	store.nextQuestion();
 };

@@ -1,8 +1,8 @@
 <template>
 	<main class="page-container">
 		<game-title :title="title" />
-		<p>Total Questions: {{ totalQuestions }}</p>
-    	<p>Percentage Correct: {{ percentageCorrect }}%</p>
+		<p>Total Questions: {{ gameStore.total }}</p>
+    	<p>Percentage Correct: {{ gameStore.getPercentageCorrectAnswers }}%</p>
     
     	<h3>Correct Answers</h3>
     	<ul>
@@ -28,8 +28,6 @@ const title = 'Final Score';
 const gameStore = useGameStore();
 const correctPassports = null;
 const incorrectPassports = null;
-const totalQuestions = null;
-const percentageCorrect = null;
 </script>
 
 <style scoped lang="scss">

@@ -19,6 +19,7 @@ const givenAnswer = computed({
 		return gameStore.givenAnswer;
 	},
 	set(value) {
+		console.log(value);	
 		return gameStore.setGivenAnswer(value);
 	}
 });

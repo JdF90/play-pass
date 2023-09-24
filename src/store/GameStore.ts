@@ -35,6 +35,9 @@ export const useGameStore = defineStore('GameStore', {
 
 			return state.game.id;
 		},
+		getPercentageCorrectAnswers: (state): number => {
+			return (state.gameResult!.correct.length / state.total) * 100; 
+		},
 		isLastQuestion: (state): boolean => {
 			return state.current + 1 === state.total;
 		}
@@ -46,10 +49,12 @@ export const useGameStore = defineStore('GameStore', {
 					this.game = null;
 				}
 				this.game = game;
+				console.log(this.game);
 				this.total = game!.questions.length
 			});
 		},
 		async retrieveIsCorrectAnswer(givenAnswer: string) {
+			console.log(this.getCurrentPlayerId);
 			const correct = await retrieveIfAnswerIsCorrect({
 				gameId: this.getGameId, 
 				playerId: this.getCurrentPlayerId, 
@@ -62,7 +67,6 @@ export const useGameStore = defineStore('GameStore', {
 			this.tries++;
 		},
 		async retrieveGameResults() {
-			console.log('here');
 			this.gameResult = await retrieveGameResultsFromBackend(this.getGameId);
 		},
 		setGivenAnswer(givenAnswer: string) {
