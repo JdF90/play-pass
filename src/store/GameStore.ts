@@ -12,7 +12,7 @@ export const useGameStore = defineStore('GameStore', {
 		currentQuestion: {} as {},
 		isCorrect: false,
 		givenAnswer: '',
-		tries: 0,
+		questionAnswered: false,
 		gameResult: {} as GameResult | undefined,
 	}),
 	getters: {
@@ -49,22 +49,16 @@ export const useGameStore = defineStore('GameStore', {
 					this.game = null;
 				}
 				this.game = game;
-				console.log(this.game);
 				this.total = game!.questions.length
 			});
 		},
 		async retrieveIsCorrectAnswer(givenAnswer: string) {
-			console.log(this.getCurrentPlayerId);
-			const correct = await retrieveIfAnswerIsCorrect({
+			this.isCorrect = await retrieveIfAnswerIsCorrect({
 				gameId: this.getGameId, 
 				playerId: this.getCurrentPlayerId, 
 				answer: givenAnswer.toLowerCase(),
 				questionNumber: this.current + 1
 			});
-			if (correct) {
-				this.isCorrect = true;
-			}
-			this.tries++;
 		},
 		async retrieveGameResults() {
 			this.gameResult = await retrieveGameResultsFromBackend(this.getGameId);
@@ -76,7 +70,7 @@ export const useGameStore = defineStore('GameStore', {
 			this.current++;
 			this.givenAnswer = '';
 			this.isCorrect = false;
-			this.tries = 0;
+			this.questionAnswered = false;
 		}
 	}
 });

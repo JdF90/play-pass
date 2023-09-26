@@ -4,10 +4,10 @@
 		<span> {{ feedBack }} </span>
 		<div>
 			<try-answer-button
-					v-if="!isCorrect"
+					v-if="!questionAnswered"
 					@try-answer="checkAnswer" />
 			<next-question-button
-					v-if="isCorrect"
+					v-if="questionAnswered"
 					@next-question="nextQuestion"
 			/>
 		</div>
@@ -25,10 +25,10 @@ import {computed} from 'vue';
 const emit = defineEmits(['nextQuestion']);
 
 const store = useGameStore();
-const { isCorrect, givenAnswer, tries, currentQuestion } = storeToRefs(store);
+const { isCorrect, givenAnswer, questionAnswered } = storeToRefs(store);
 
 const feedBack = computed(() => {
-	if (givenAnswer.value === '' || tries.value === 0) {
+	if (!questionAnswered.value) {
 		return '';
 	}
 	if (isCorrect.value) {
@@ -38,8 +38,8 @@ const feedBack = computed(() => {
 });
 
 const checkAnswer = async () => {
-	console.log(store.current);
 	await store.retrieveIsCorrectAnswer(givenAnswer.value);
+	store.questionAnswered = true;
 };
 
 const nextQuestion = () => {
