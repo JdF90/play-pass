@@ -1,5 +1,5 @@
 <template>
-	// nav bar
+	<TheNavigation />
 	// game generator
 	<button
 		name="start-game-button"
@@ -10,6 +10,7 @@
 </template>
 
 <script setup lang="ts">
+import TheNavigation from '../components/navigation/TheNavigation.vue';
 import {useRouter} from 'vue-router';
 import {ROUTES} from '../router';
 
