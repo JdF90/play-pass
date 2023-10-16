@@ -1,4 +1,6 @@
 <template>
+	// nav bar
+	// game generator
 	<button
 		name="start-game-button"
 		data-testid="start-game-button"
