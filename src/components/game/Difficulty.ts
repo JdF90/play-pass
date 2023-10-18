@@ -1,0 +1,5 @@
+export const enum DifficultyLevel {
+    EASY = 'easy',
+    MEDIUM = 'medium',
+    HARD = 'hard',
+}

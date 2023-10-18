@@ -3,6 +3,7 @@ import { Game } from '../domain/schema/GameSchema';
 import { retrieveGame, retrieveGameResultsFromBackend } from '../logic/service/GameService';
 import {retrieveIfAnswerIsCorrect} from '../logic/service/QuestionService';
 import { GameResult } from '../domain/schema/GameResultSchema';
+import { DifficultyLevel } from '../components/game/Difficulty';
 
 export const useGameStore = defineStore('GameStore', {
 	state: () => ({
@@ -43,6 +44,9 @@ export const useGameStore = defineStore('GameStore', {
 		}
 	},
 	actions: {
+		async generateGameLink({ difficulty, questionAmount }: { difficulty: DifficultyLevel, questionAmount: number }) {
+			await 
+		},
 		async retrieveGame() {
 			await retrieveGame().then((game: Game | null) => {
 				if (game === null) {
