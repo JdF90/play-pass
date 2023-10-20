@@ -1,20 +1,21 @@
 import { defineStore } from 'pinia';
 import { Game } from '../domain/schema/GameSchema';
-import { retrieveGame, retrieveGameResultsFromBackend } from '../logic/service/GameService';
+import { generateGameLink, retrieveGame, retrieveGameResultsFromBackend } from '../logic/service/GameService';
 import {retrieveIfAnswerIsCorrect} from '../logic/service/QuestionService';
 import { GameResult } from '../domain/schema/GameResultSchema';
 import { DifficultyLevel } from '../components/game/Difficulty';
 
 export const useGameStore = defineStore('GameStore', {
 	state: () => ({
-		game: {} as Game | null,
-		total: 0,
 		current: 0,
 		currentQuestion: {} as {},
-		isCorrect: false,
-		givenAnswer: '',
-		questionAnswered: false,
+		game: {} as Game | null,
+		gameLink: '',
 		gameResult: {} as GameResult | undefined,
+		givenAnswer: '',
+		isCorrect: false,
+		questionAnswered: false,
+		total: 0,
 	}),
 	getters: {
 		getCurrentPlayer: (state) => {
@@ -45,7 +46,7 @@ export const useGameStore = defineStore('GameStore', {
 	},
 	actions: {
 		async generateGameLink({ difficulty, questionAmount }: { difficulty: DifficultyLevel, questionAmount: number }) {
-			await 
+			const gameLink = await generateGameLink({ difficulty, questionAmount });
 		},
 		async retrieveGame() {
 			await retrieveGame().then((game: Game | null) => {

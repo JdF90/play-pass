@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="navbar-brand">
             <a class="navbar-item" href="https:">
-                <img src="src/assets/play-pass-icon.png" alt="" width="40" height="40">
+                <img src="/src/assets/play-pass-icon.png" alt="" width="40" height="40">
             </a>
             <TitleComponent title="Play Pass" class="m-auto" />
             <a role="button" class="navbar-burger" data-target="navbar-menu-items" @click="toggleMenu">

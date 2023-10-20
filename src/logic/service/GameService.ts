@@ -12,7 +12,7 @@ export const generateGameLink: ({ difficulty, questionAmount }: { difficulty: Di
 		const response = await fetch(BACKEND_URL + GAME_ENDPOINT_URL + GAME_GENERATE_LINK_PATH_URL);
 		const json = await response.json();
 		return json;
-	} catch (error=) {
+	} catch (error) {
 		console.log(error);
 	}
 }
