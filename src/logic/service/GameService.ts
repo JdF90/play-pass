@@ -13,7 +13,7 @@ export const generateGameLink: ({ difficulty, questionAmount }: { difficulty: Di
 		const json = await response.json();
 		return json;
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 	}
 }
 
@@ -38,8 +38,10 @@ export const retrieveGameResultsFromBackend: (gameId: string) => Promise<GameRes
 	return GameResultSchema.parse(json);
 }
 
-const fromBackendApi: () => Promise <Game> = async () => {
-	const response = await fetch(BACKEND_URL + GAME_ENDPOINT_URL);
+const fromBackendApi: () => Promise<Game> = async () => {
+	const response = await fetch(BACKEND_URL + GAME_ENDPOINT_URL, {
+		method: 'POST'
+	});
 	const json = await response.json();
 	return GameSchema.parse(json);
 }; 

@@ -69,7 +69,6 @@ const generatedLink = ref('');
 const router = useRouter();
 
 const generateLink = () => {
-  console.log(difficulty.value + " " + questionAmount.value);
   generatedLink.value = `/generated/link/to/game/${difficulty.value}/${questionAmount.value}`;
 };
 
