@@ -1,5 +1,5 @@
 <template>
-    <p v-for="record in passport?.records"> {{ record.club }} </p>
+        <p v-for="record in passport?.records"> {{ record.club }} </p>
 </template>
 
 <script setup lang="ts">
