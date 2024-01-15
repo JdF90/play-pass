@@ -1,10 +1,12 @@
 export type Passport = {
     id: string,
     playerId: string,
-    records: {
-        period: string,
-        club: string,
-        games: string,
-        goals: number
-    }[]
+    records: Record[]
+}
+
+export type Record = {
+    period: string,
+    club: string,
+    games: string,
+    goals: number
 }
