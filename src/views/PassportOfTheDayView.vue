@@ -1,54 +1,32 @@
 <template>
-    <div class="flex flex-col gap-4 mx-auto text-center w-1/2">
-        <h1 class="text-2xl">Passport of the day</h1>
-        <div>
-            <TransitionGroup name="list" tag="ul">
-                <li v-for="(record, index) in recordsToShow" :key="index"> 
-                    <span>
-                        {{ record.period }}
-                    </span>
-                    <span>
-                        {{ record.club }}
-                    </span> 
-                    <span>
-                        {{ record.games }}
-                    </span>
-                    <span>
-                        {{ record.goals }}
-                    </span>
-                </li>
-            </TransitionGroup>
+    <main v-if="passport" class="flex flex-col gap-4 text-center">
+        <h1 class="mt-20 text-white text-4xl">Passport of the day</h1>
+        <div class="mt-8">
+            <PassportVue :records="passport.records"/>
         </div>
-        <div class="flex flex-col place-items-center w-full">
-            <input type="text" name="answer" id="answer" class="block w-1/2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Enter your answer">
+        <div class="bottom-0 fixed flex justify-center gap-4 mt-8 mb-8 w-full">
+            <input v-model="answer" type="text" name="answer" id="answer" class="block w-1/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-100 sm:text-sm sm:leading-6" placeholder="Enter your answer">
+            <button @click="submit" type="button" class="rounded-md bg-green-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500">Submit</button>
         </div>
-    </div>
+    </main>
 </template>
 
 <script setup lang="ts">
-import { Ref, onBeforeMount, ref, watch } from 'vue';
+import { Ref, onBeforeMount, ref } from 'vue';
 import { Passport, Record } from '../domain/Passport';
-import { retrievePassportOfTheDay } from '../service/PassportService';
+import PassportVue from '../components/Passport.vue';
+import { retrievePassportOfTheDay, submitAnswer } from '../service/PassportService';
 
 const passport: Ref<Passport | undefined> = ref(undefined);
-const recordsToShow: Ref<Record[]> = ref([]);
+const answer = ref('');
 
 onBeforeMount(async () => {
     passport.value = await retrievePassportOfTheDay();
 });
 
-const addRecord = () => {
-    if (!passport.value || indexRecordToAdd.value === passport.value?.records.length) {
-        clearInterval(interval);
-        return;
-    }
-
-    recordsToShow.value.push(passport.value.records[indexRecordToAdd.value]);
-    indexRecordToAdd.value++;
+const submit = async () => {
+    const isCorrect = await submitAnswer({ playerId: passport.value!.playerId, input: answer.value })
 }
-
-const interval = setInterval(addRecord, 2000);
-const indexRecordToAdd = ref(0);
 
 </script>
 
