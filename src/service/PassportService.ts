@@ -1,6 +1,6 @@
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 const PASSPORT_OF_THE_DAY_ENDPOINT_URL = '/passport-of-the-day';
-const CHECK_ANSWER_PATH_URL = '/check-answer'
+const CHECK_ANSWER_PATH_URL = '/check-answer';
 
 export const retrievePassportOfTheDay = async () => {
     try {
@@ -12,7 +12,7 @@ export const retrievePassportOfTheDay = async () => {
     }
 }
 
-export const submitAnswer = async ({playerId, input}: { playerId: string, input: string }) => {
+export const submitAnswer = async ({playerId, input}: { playerId: string, input: string }): Promise<SubmitAnswerResponse | null> => {
     try {
         const response = await fetch(BACKEND_URL + PASSPORT_OF_THE_DAY_ENDPOINT_URL + CHECK_ANSWER_PATH_URL, { 
             method: 'PUT', 
@@ -23,5 +23,14 @@ export const submitAnswer = async ({playerId, input}: { playerId: string, input:
         return json;
     } catch (error) {
         console.error(error);
+        return null;
     }
+}
+
+export type SubmitAnswerResponse = {
+    id: string,
+    answer: string,
+    isCorrect: boolean,
+    correct: number,
+    notCorrect: number
 }
